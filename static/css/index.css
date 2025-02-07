@@ -91,10 +91,13 @@ header a{
             margin-right: 10px;
         }
 
+
+
         h1{
             color: #fff;
             font-size: 24px;
             font-weight: bold;
+
         }
     }
 
@@ -133,4 +136,9 @@ header a{
             cursor: pointer;
         }
     }
+}
+
+.name{
+    color: #1db954;
+    font-size: 24px;
 }
