@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    background: #191919;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+
+body::-webkit-scrollbar {
+    width: 10px; 
+}
+
+body::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 10px; 
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+    border: 2px solid #1e1e1e; 
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #1db954; 
+}
+
+header{
+    width: 99vw;
+    position: fixed;
+    inset: 0;
+    height: 40px;
+    padding: 10px;
+    background: #191919;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    overflow: hidden;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.user img{
+    width: 30%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user p{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+section{
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist {
+    width: 90%;
+    height: 60%;
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden; 
+
+    img {
+        max-width: 60%;
+        height: auto; 
+        object-fit: contain;
+        align-self: flex-start;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 54px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    p {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 300;
+        margin-left: 20px;
+    }
+}
+
+.genres{
+    text-transform: uppercase;
+}
+
+.genres_list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+
+.buttons{
+    background: #ffff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+
+    button{
+        border: none;
+        padding: 8px;
+        font-weight: bold;
+        width: 100px;
+        margin: 0;
+        transition: all 0.3s ease;
+        
+
+        
+
+        &:first-child{
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+
+        }
+
+        &:last-child{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    }
+
+    
+}
+
+.buttons button.active {
+    background-color: #008C00
+    ; 
+    color: #fff; 
+}
+
+.songs-information{
+    width: 90%;
+    height: auto;
+    display: flex;
+    padding: 20px; 
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden; 
+}
+
+
+.albums_list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 20px; 
+    justify-items: center; 
+}
+
+.albums_list a{
+    color: white;
+    text-decoration: none   ;
+}
+
+.albums, .singles{
+    display: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: 500px;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+
+.albums::-webkit-scrollbar, .singles::-webkit-scrollbar {
+    width: 8px;
+}
+
+.albums::-webkit-scrollbar-track, .singles::-webkit-scrollbar-track {
+    background: #191919;
+    border-radius: 10px;
+}
+
+.albums::-webkit-scrollbar-thumb, .singles::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.albums::-webkit-scrollbar-thumb:hover, .singles::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+
+.album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #191919;
+    z-index: 100;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    gap: 10px;
+    max-width: 200px;
+    text-align: center;
+    max-height: 400px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.album:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.album img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain;
+    border-radius: 10px;
+}

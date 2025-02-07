@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca tu artista</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <div class="user">
+            <img src="{{user_info['images'][1]['url']}}" alt="User">
+            <p>{{user_info['display_name']}}</p>
+        </div>
+    </header>
+
+    
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/spotify logo.png') }}" alt="logo Spotify">
+            <h1>Busca la información de tu artista favorito</h1>
+        </div>
+        <form action="/search" method="post">
+            <input type="text" name="artist" placeholder="Nombre del artista" autocomplete="off">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+</body>
+</html>

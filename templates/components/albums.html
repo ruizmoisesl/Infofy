@@ -1,0 +1,18 @@
+{% if albums %}
+<div class="albums_list">
+    {% for album in albums['items'] %}
+    <a href="/album-information/{{album['id']}}">
+        <div class="album">
+            <img src="{{album['images'][0]['url']}}" alt="Album Image">
+            <p>{{album['name']}}</p>
+    
+            <p>{{ album['release_date'] | datetimeformat }}</p>
+        </div> 
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<div class="albums_list">
+    <h1>No albums found</h1>
+</div>
+{% endif %}

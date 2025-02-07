@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/album-details.css') }}">
+    <link rel="shortcut icon" href="{{album['images'][0]['url']}}" type="image/x-icon">
+    <title>{{album['name']}}</title>
+</head>
+<body>
+    <header>
+        <a href="/">Buscar otro artista</a>
+
+        <div class="user">
+            <img src="{{user_info['images'][1]['url']}}" alt="User">
+            <p>{{user_info['display_name']}}</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="album-info">
+            <div class="album__image">
+                <img src="{{album['images'][0]['url']}}" alt="Artist Image">
+            </div>
+            <div class="artist__info">
+                <h1>{{album['name']}}</h1>
+                <div class="total_tracks">
+                    <h2>Total Tracks:</h2>
+                    <h3>{{album['total_tracks']}}</h3>
+                </div>
+                <div class="popularity">
+                    <h2>Popularity:</h2>
+                    <h3>{{album['popularity']}}</h3>
+                </div>
+                <div class="info-bottom">
+                    <a href="{{album['external_urls']['spotify']}}" target="_blank">Open in Spotify</a>
+                    <div>
+                        <p>{{album['release_date'] | datetimeformat}}</p>
+                    </div>
+                    {% for copy in album['copyrights'] %}
+                        <p>&copy; {{copy['text']}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="tracks">
+        <div class="table">
+            <table class="tracks_table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Track Name</th>
+                        <th>Duration</th>
+                        <th>Artists</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for track in album_tracks['items'] %}
+                    <tr class="track">
+                        <td>{{track['track_number']}}</td>
+                        <td>{{ track['name'] }}</td>
+                        <td>{{ track['duration_ms'] | format_duration }}</td>
+                        <td>
+                            {% for artist in track['artists'] %}
+                            <span>{{ artist['name'] }}</span>{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section> 
+</body>
+</html>

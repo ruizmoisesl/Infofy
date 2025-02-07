@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/artist.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <link rel="shortcut icon" href="{{results['artists']['items'][0]['images'][0]['url']}}" type="image/x-icon">
+    <title>{{results['artists']['items'][0]['name'].upper()}}</title>
+</head>
+<body>
+    <header>
+        <a href="/">Buscar otro artista</a>
+
+        <div class="user">
+            <img src="{{user_info['images'][1]['url']}}" alt="User">
+            <p>{{user_info['display_name']}}</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="artist">
+            <div class="artist__image">
+                <img src="{{results['artists']['items'][0]['images'][0]['url']}}" alt="Artist Image">
+            </div>
+            <div class="artist__info">
+                <h1>{{results['artists']['items'][0]['name']}}</h1>
+                <div class="genres">
+                    <h2>ARTIST GENRES</h2>
+                    <div class="genres_list">
+                        {% for genre in results['artists']['items'][0]['genres'] %}
+                        <p>{{genre}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="followers">
+                    <p>{{results['artists']['items'][0]['followers']['total']}} Followers</p>
+                </div>
+                <div class="popularity">
+                    <p>{{results['artists']['items'][0]['popularity']}} Popularity</p>
+                </div>
+                <a href="{{results['artists']['items'][0]['external_urls']['spotify']}}" target="_blank">Open in Spotify</a>
+            </div>
+        </div>
+    </section>
+    <section class="songs-information">
+        <div class="buttons">
+            <button id="albums" type="button">ALBUMS</button>
+            <button id="singles" type="button">SINGLES</button>
+        </div>
+        <div class="albums" >
+            {% include 'components/albums.html'   %}
+        </div> 
+        <div class="singles">
+            {% include 'components/singles.html'   %}
+        </div>
+    </section>
+
+
+</body>
+</html>

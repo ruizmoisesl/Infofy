@@ -1,0 +1,14 @@
+<div class="albums_list">
+    {% for single in singles['items'] %}
+    <div class="album">
+        <img src="{{single['images'][0]['url']}}" alt="Album Image">
+        <p>{{single['name']}}</p>
+        <div>
+            {% for artist in single['artists'] %}
+            <span>{{ artist['name'] }}</span>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+        <p>{{ single['release_date'] | datetimeformat }}</p>
+    </div>
+    {% endfor %}
+</div>
