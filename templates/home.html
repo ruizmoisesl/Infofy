@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca tu artista</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <div class="user">
+            <img src="{{user_info['images'][1]['url']}}" alt="User">
+            <p>{{user_info['display_name']}}</p>
+            <button id="button_menu">
+                <img src="{{ url_for('static', filename='img/chevron-down.svg') }}" alt="">
+            </button>
+        </div>
+        <div class="options">
+            <div>
+                <a href="">
+                    <img src="{{ url_for('static', filename='img/user.svg') }}" alt="">
+                    <p>Mi perfil</p>
+                </a>
+            </div>
+            <div>
+                <a href="/logout">
+                    <img src="{{ url_for('static', filename='img/power.svg') }}" alt="">
+                    <p>Cerrar sesión</p>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/Full_logo_Green_CMYK.svg') }}" alt="logo Spotify">
+            <h1 class="name">INFOFY</h1>
+            <h1>Busca la información de tu artista favorito</h1>
+        </div>
+        <form action="/search" method="post">
+            <input type="text" name="artist" placeholder="Nombre del artista" autocomplete="off">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+</body>
+</html>

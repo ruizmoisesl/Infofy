@@ -119,6 +119,19 @@ section{
         font-weight: 300;
         margin-left: 20px;
     }
+
+    a{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #1ed760;
+        text-decoration: none;
+        img{
+            margin-right: 10px;
+            width: 30px;
+        }
+        
+    }
 }
 
 .genres{
@@ -165,8 +178,7 @@ section{
 }
 
 .buttons button.active {
-    background-color: #008C00
-    ; 
+    background-color: #1ed760; 
     color: #fff; 
 }
 
@@ -239,6 +251,20 @@ section{
     max-height: 400px;
     padding: 10px;
     transition: all 0.3s ease;
+
+    
+    a{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #1ed760;
+        text-decoration: none;
+        img{
+            margin-right: 10px;
+            width: 30px;
+        }
+        
+    }
 }
 
 .album:hover{

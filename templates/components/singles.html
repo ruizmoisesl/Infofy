@@ -9,6 +9,9 @@
             {% endfor %}
         </div>
         <p>{{ single['release_date'] | datetimeformat }}</p>
+        <a href="{{single['external_urls']['spotify']}}" target="_blank">
+            <img src="{{ url_for('static', filename='img/Primary_Logo_Green_CMYK.svg') }}" alt="">
+            LISTEN ON SPOTIFY</a>
     </div>
     {% endfor %}
 </div>

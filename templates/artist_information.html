@@ -39,7 +39,9 @@
                 <div class="popularity">
                     <p>{{results['artists']['items'][0]['popularity']}} Popularity</p>
                 </div>
-                <a href="{{results['artists']['items'][0]['external_urls']['spotify']}}" target="_blank">Open in Spotify</a>
+                <a href="{{results['artists']['items'][0]['external_urls']['spotify']}}" target="_blank">
+                    <img src="{{ url_for('static', filename='img/Primary_Logo_Green_CMYK.svg') }}" alt="">
+                    OPEN SPOTIFY</a>
             </div>
         </div>
     </section>

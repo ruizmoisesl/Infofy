@@ -1,24 +1,24 @@
-from flask import Flask, session, redirect, request, url_for
-from routes import index, search, artist, album_information, spotify_credentials
+from flask import Flask, session, redirect, request, url_for,render_template
+from routes import home, search, artist, album_information, callback
 from datetime import datetime
+import os
 
 app = Flask(__name__)
-app.secret_key = 'secretkeyas'
+app.secret_key = 'hadoiehoidaodhafhaklgfaklgfuaeidajkhdakhdeaohdiaed'
 
-@app.route('/', methods= ['GET','POST'])
+@app.route('/')
 def index_route():
-    token_info = session.get('token_info', None)
-    if not token_info:
-        auth_url = spotify_credentials.sp_oauth.get_authorize_url()
-        return redirect(auth_url)
-    return index.index()
+    token = session.get('token_info')
+    user_info = session.get('user_info')
+    return render_template('index.html', token = token, user_info = user_info)
+
+@app.route('/home', methods= ['GET','POST'])
+def home_route():
+    return home.index()
 
 @app.route('/authorize')
-def callback():
-    code = request.args.get('code')
-    token_info = spotify_credentials.sp_oauth.get_access_token(code)
-    session['token_info'] = token_info
-    return redirect(url_for('index_route'))
+def callback_route():
+    return callback.callback()
 
 
 @app.route('/search', methods= ['POST'])
@@ -32,6 +32,18 @@ def artist_route(id):
 @app.route('/album-information/<string:id>', methods=['GET', 'POST'])
 def alb_information(id):
     return album_information.album_information(id)
+
+@app.route("/logout")
+def logout():
+    if session:
+        session.clear()
+
+    CACHE_FILE = ".cache" 
+
+    if os.path.exists(CACHE_FILE):
+        os.remove(CACHE_FILE)
+
+    return redirect(url_for('index_route'))
 
 @app.template_filter('format_duration')
 def format_duration(value):

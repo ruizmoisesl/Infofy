@@ -41,13 +41,50 @@ header{
     margin: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
-    overflow: hidden;
 }
 
 header a{
     color: white;
     text-decoration: none;
     font-weight: bolder;
+}
+
+
+header .options{
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    right: 40px;
+    top: 65px;
+    padding: 10px;    
+    border-radius: 5px;
+}
+
+header button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:none;
+    border: none;
+
+    img{
+        transform: scale(1.5);
+    }
+}
+
+header .options a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    color: #fff;
+    font-weight: bold;
+
+    img{
+        margin-right: 2px;
+    }
 }
 
 .user{
@@ -58,7 +95,7 @@ header a{
 
 
 .user img{
-    width: 30%;
+    width: 15%;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -85,8 +122,6 @@ header a{
         margin-bottom: 20px;
 
         img{
-            width: 200px;
-            height: 200px;
             object-fit: contain;
             margin-right: 10px;
         }
@@ -141,4 +176,15 @@ header a{
 .name{
     color: #1db954;
     font-size: 24px;
+}
+
+
+.button-sesion{
+    background: #1ed760;
+    padding: 12px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
 }
