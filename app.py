@@ -38,10 +38,6 @@ def logout():
     if session:
         session.clear()
 
-    CACHE_FILE = ".cache" 
-
-    if os.path.exists(CACHE_FILE):
-        os.remove(CACHE_FILE)
 
     return redirect(url_for('index_route'))
 
