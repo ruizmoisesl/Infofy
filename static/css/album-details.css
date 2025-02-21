@@ -1,180 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+* {
     font-family: "Kanit", serif;
     font-weight: 400;
     font-style: normal;
+    box-sizing: border-box;
 }
 
-
-body{
+body {
     background: #191919;
     color: white;
     margin: 0;
     padding: 10px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-body::-webkit-scrollbar {
-    width: 10px; 
-}
-
-body::-webkit-scrollbar-track {
-    background: #1e1e1e;
-    border-radius: 10px; 
-}
-
-body::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px;
-    border: 2px solid #1e1e1e; 
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: #1db954; 
-}
-
-header{
-    width: 99vw;
+header {
+    width: 100%;
     position: fixed;
     inset: 0;
-    height: 40px;
+    height: 50px;
     padding: 10px;
     background: #191919;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
-    overflow: hidden;
 }
 
-header a{
+header a {
     color: white;
     text-decoration: none;
     font-weight: bolder;
 }
 
-.user{
+.user {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
-
-.user img{
-    width: 30%;
+.user img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.user p{
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-section{
-    margin-top: 20px;
-    width: 100%;
-    height: 100%;
+.album-info {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.album-info{
-    width: 90%;
-    height: 60%;
-    display: flex;
-    flex-direction: row; 
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 50px;
+    margin-top: 70px;
+    padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden; 
-
-    img {
-        max-width: 70%;
-        height: auto; 
-        object-fit: contain;
-        align-self: flex-start;
-    }
-
-    h1 {
-        text-transform: uppercase;
-        color: #fff;
-        font-size: 54px;
-        font-weight: bold;
-        margin-bottom: 0;
-    }
-
-    p {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 300;
-        margin-left: 20px;
-    }
-}
-
-.total_tracks, .popularity{
-    margin-bottom: -20px;
-    display: flex;
-    align-items: center;
-}
-
-.total_tracks h3, .popularity h3{
-    margin-left: 10px;
-}
-
-.album-info a{
-    margin-top: 10px;
-}
-
-body{
-    background: #191919;
-    color: white;
-}
-
-
-.table{
-    width: 90%;
-    margin: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
+}
+
+.album-info img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.album-info h1 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.album-info p {
+    font-size: 16px;
+    color: #b3b3b3;
+}
+
+.tracks {
+    width: 90%;
+    margin-top: 20px;
+    overflow-x: auto;
     border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .tracks_table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     color: #b3b3b3;
 }
 
 .tracks_table th, .tracks_table td {
-    padding: 12px 15px;
+    padding: 10px;
     border-bottom: 1px solid #282828;
 }
 
 .tracks_table th {
     background-color: #181818;
     color: #b3b3b3;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .tracks_table tr:hover {
     background-color: #282828;
-}
-
-.tracks_table tr:nth-of-type(even) {
-    background-color: #181818;
 }
 
 .tracks_table a {
@@ -186,20 +118,55 @@ body{
     text-decoration: underline;
 }
 
-.tracks_table .track td {
-    vertical-align: middle;
+@media (max-width: 768px) {
+
+    .album-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .album-info img{
+        width: 80%;
+    }
+
+
+    .album-info h1 {
+        font-size: 24px;
+    }
+
+    .album-info p {
+        font-size: 14px;
+    }
+
+    .tracks_table {
+        font-size: 12px;
+    }
 }
 
-.tracks_table .track td:first-child {
-    padding-left: 20px;
-}
+@media (max-width: 480px) {
 
-.tracks_table .track td:last-child {
-    padding-right: 20px;
-}
+    .album-info img{
+        width: 80%;
+    }
 
-.tracks{
-    margin-top: 50px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 5px;
+    }
+
+    .user img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .album-info h1 {
+        font-size: 20px;
+    }
+
+    .album-info p {
+        font-size: 12px;
+    }
 }

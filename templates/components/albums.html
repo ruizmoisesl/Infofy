@@ -1,3 +1,9 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+</head>
+
+<div class="loader"></div>
+
 {% if albums %}
 <div class="albums_list">
     {% for album in albums['items'] %}
@@ -5,9 +11,9 @@
         <div class="album">
             <img src="{{album['images'][0]['url']}}" alt="Album Image">
             <p>{{album['name']}}</p>
-    
+
             <p>{{ album['release_date'] | datetimeformat }}</p>
-        </div> 
+        </div>
     </a>
     {% endfor %}
 </div>
@@ -16,3 +22,6 @@
     <h1>No albums found</h1>
 </div>
 {% endif %}
+
+
+<script src="{{ url_for('static', filename='js/loader.js') }}" defer></script>

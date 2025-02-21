@@ -1,186 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
-    font-family: "Kanit", serif;
+
+* {
+    font-family: "Kanit", sans-serif;
     font-weight: 400;
     font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
+body {
     background: #191919;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 
 body::-webkit-scrollbar {
-    width: 10px; 
+    width: 10px;
 }
 
 body::-webkit-scrollbar-track {
     background: #1e1e1e;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
     border-radius: 10px;
-    border: 2px solid #1e1e1e; 
+    border: 2px solid #1e1e1e;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: #1db954; 
+    background: #1db954;
 }
 
-header{
-    width: 99vw;
+/* HEADER */
+header {
+    width: 100%;
     position: fixed;
-    inset: 0;
-    height: 40px;
+    top: 0;
+    left: 0;
+    height: 50px;
     padding: 10px;
     background: #191919;
     display: flex;
     align-items: center;
-    justify-content: end;
-    margin: 0;
+    justify-content: space-between;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
 
-header a{
+header a {
     color: white;
     text-decoration: none;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
-
-header .options{
+header .options {
     display: none;
     position: absolute;
     background-color: #1e1e1e;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     right: 40px;
     top: 65px;
-    padding: 10px;    
+    padding: 10px;
     border-radius: 5px;
 }
 
-header button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background:none;
+header button {
+    background: none;
     border: none;
-
-    img{
-        transform: scale(1.5);
-    }
+    cursor: pointer;
 }
 
-header .options a{
+.user {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    color: #fff;
-    font-weight: bold;
-
-    img{
-        margin-right: 2px;
-    }
-}
-
-.user{
-    display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
-
-.user img{
-    width: 15%;
+.user img {
+    width: 35px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.user p{
+.user p {
     color: white;
     font-size: 16px;
     font-weight: bold;
 }
 
-.container{
+/* CONTAINER */
+.container {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    .logo{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-
-        img{
-            width: 50%;
-            object-fit: contain;
-            margin-right: 10px;
-        }
-
-
-
-        h1{
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-
-        }
-    }
-
-    form{
-        display: flex;
-        align-items: center;
-
-        input[type="text"]{
-            width: 400px;
-            height: 40px;
-            padding: 0 10px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            font-size: 16px;
-            outline: 2px solid #ccc;
-            color: white;
-            background: none;
-            transition: all 0.5s ease-in-out;
-
-            &::placeholder{
-                font-size: 16px;
-                margin-left: 20px;
-            }
-        }
-
-        input[type="submit"]{
-            width: 100px;
-            height: 44px;
-            padding: 10px;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            background: #ccc;
-            color: #000;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    }
 }
 
-.name{
-    color: #1db954;
+.container .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container .logo img {
+    width: 50%;
+    object-fit: contain;
+}
+
+.container .logo h1 {
+    color: #fff;
     font-size: 24px;
+    font-weight: bold;
 }
 
+/* FORMULARIO */
+form {
+    display: flex;
+    align-items: center;
+}
 
-.button-sesion{
+form input[type="text"] {
+    width: 400px;
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: 2px solid #ccc;
+    color: white;
+    background: none;
+    transition: all 0.5s ease-in-out;
+}
+
+form input[type="submit"] {
+    width: 100px;
+    height: 44px;
+    padding: 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background: #ccc;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* BOTÓN DE SESIÓN */
+.button-sesion {
     background: #1ed760;
     padding: 12px;
     color: white;
@@ -188,4 +164,72 @@ header .options a{
     text-decoration: none;
     font-weight: bold;
     border-radius: 20px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    header {
+        height: 45px;
+        padding: 5px;
+    }
+
+    .user{
+        align-items: end;
+    }
+    .user img {
+        width: 30px;
+    }
+
+    .container .logo img {
+        width: 70%;
+    }
+
+    form input[type="text"] {
+        width: 280px;
+        font-size: 14px;
+    }
+
+    form input[type="submit"] {
+        width: 80px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .user {
+        flex-direction: column;
+        align-items: center;
+        align-items: end;
+    }
+
+    .user img {
+        width: 40px;
+        margin-bottom: 5px;
+    }
+
+    .container .logo h1 {
+        font-size: 20px;
+    }
+
+    form input[type="text"] {
+        width: 220px;
+        font-size: 12px;
+    }
+
+    form input[type="submit"] {
+        width: 70px;
+        font-size: 12px;
+    }
 }

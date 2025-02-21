@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <link rel="shortcut icon" href="{{results['artists']['items'][0]['images'][0]['url']}}" type="image/x-icon">
     <title>{{results['artists']['items'][0]['name'].upper()}}</title>
 </head>
+
 <body>
     <header>
-        <a href="/">Buscar otro artista</a>
+        <a href="/home">Buscar otro artista</a>
 
         <div class="user">
             <img src="{{user_info['images'][1]['url']}}" alt="User">
@@ -50,14 +52,13 @@
             <button id="albums" type="button">ALBUMS</button>
             <button id="singles" type="button">SINGLES</button>
         </div>
-        <div class="albums" >
-            {% include 'components/albums.html'   %}
-        </div> 
+        <div class="albums">
+                {% include 'components/albums.html' %}
+        </div>
         <div class="singles">
-            {% include 'components/singles.html'   %}
+                {% include 'components/singles.html' %}
         </div>
     </section>
-
-
 </body>
+
 </html>

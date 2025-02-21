@@ -1,0 +1,17 @@
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid lightblue;
+    border-right-color: #1ed760;
+    animation: l2 1s infinite linear;
+    margin-top: 200px;
+}
+  @keyframes l2 {to{transform: rotate(1turn)}}
+
+
+
+.albums_list{
+    display: none;
+}
+
