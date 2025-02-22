@@ -1,0 +1,54 @@
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    padding: 10px;
+    background: #191919;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .options {
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    right: 40px;
+    top: 65px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user img {
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user p {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}

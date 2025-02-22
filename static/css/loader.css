@@ -1,4 +1,4 @@
-.loader {
+.loader, .loader2 {
     width: 50px;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -13,5 +13,9 @@
 
 .albums_list{
     display: none;
+}
+
+.singles_list{
+  display: none;
 }
 

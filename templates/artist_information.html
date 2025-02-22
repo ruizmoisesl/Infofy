@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/artist.css') }}">
+
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
     <link rel="shortcut icon" href="{{results['artists']['items'][0]['images'][0]['url']}}" type="image/x-icon">
     <title>{{results['artists']['items'][0]['name'].upper()}}</title>
@@ -17,6 +18,23 @@
         <div class="user">
             <img src="{{user_info['images'][1]['url']}}" alt="User">
             <p>{{user_info['display_name']}}</p>
+            <button id="button_menu">
+                <img src="{{ url_for('static', filename='img/chevron-down.svg') }}" alt="">
+            </button>
+        </div>
+        <div class="options">
+            <div>
+                <a href="">
+                    <img src="{{ url_for('static', filename='img/user.svg') }}" alt="">
+                    <p>Mi perfil</p>
+                </a>
+            </div>
+            <div>
+                <a href="/logout">
+                    <img src="{{ url_for('static', filename='img/power.svg') }}" alt="">
+                    <p>Cerrar sesión</p>
+                </a>
+            </div>
         </div>
     </header>
 

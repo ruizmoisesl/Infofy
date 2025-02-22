@@ -1,35 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("📌 DOM completamente cargado.");
-
     const loader = document.querySelector(".loader");
     const albumsList = document.querySelector(".albums_list");
 
     if (!loader || !albumsList) {
-        console.error("❌ Error: No se encontró el loader o la lista de álbumes en el DOM.");
+
         return;
     }
 
-    console.log("✅ Loader y lista de álbumes encontrados en el DOM.");
 
-    // Obtener todas las imágenes dentro de la lista de álbumes
     const images = albumsList.querySelectorAll("img");
     let loadedImages = 0;
 
     if (images.length === 0) {
-        console.log("⚠ No hay imágenes en la lista de álbumes. Ocultando loader inmediatamente.");
+
         loader.style.display = "none";
-        albumsList.style.display = "block";
+        albumsList.style.display = "grid";
         return;
     }
 
-    console.log(`🖼 Se encontraron ${images.length} imágenes. Esperando a que carguen...`);
 
     function checkAllImagesLoaded() {
         loadedImages++;
-        console.log(`🔄 Imagen cargada (${loadedImages}/${images.length})`);
 
         if (loadedImages === images.length) {
-            console.log("✅ Todas las imágenes han cargado. Mostrando la lista de álbumes.");
             loader.style.display = "none";
             albumsList.style.display = "grid";
         }
@@ -37,15 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     images.forEach((img, index) => {
         if (img.complete) {
-            console.log(`🟢 Imagen ${index + 1} ya estaba en caché.`);
             checkAllImagesLoaded(); // Si la imagen ya está en caché, contarlo inmediatamente
         } else {
             img.onload = () => {
-                console.log(`🖼 Imagen ${index + 1} cargada correctamente.`);
+
                 checkAllImagesLoaded();
             };
             img.onerror = () => {
-                console.warn(`❌ Error al cargar la imagen ${index + 1}.`);
+
                 checkAllImagesLoaded();
             };
         }
@@ -54,53 +46,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("📌 DOM completamente cargado.");
 
-    const loader = document.querySelector(".loader");
-    const albumsList = document.querySelector(".singles_list");
 
-    if (!loader || !albumsList) {
-        console.error("❌ Error: No se encontró el loader o la lista de álbumes en el DOM.");
+    const loader2 = document.querySelector(".loader2");
+    const singlesList = document.querySelector(".singles_list");
+
+    if (!loader2 || !singlesList) {
         return;
     }
-
-    console.log("✅ Loader y lista de álbumes encontrados en el DOM.");
-
-    // Obtener todas las imágenes dentro de la lista de álbumes
-    const images = albumsList.querySelectorAll("img");
-    let loadedImages = 0;
+    const images = singlesList.querySelectorAll("img");
+    let loadedImages2 = 0;
 
     if (images.length === 0) {
-        console.log("⚠ No hay imágenes en la lista de álbumes. Ocultando loader inmediatamente.");
-        loader.style.display = "none";
-        albumsList.style.display = "block";
+        loader2.style.display = "none";
+        singlesList.style.display = "grid";
         return;
     }
 
     console.log(`🖼 Se encontraron ${images.length} imágenes. Esperando a que carguen...`);
 
     function checkAllImagesLoaded() {
-        loadedImages++;
-        console.log(`🔄 Imagen cargada (${loadedImages}/${images.length})`);
+        loadedImages2++;
 
-        if (loadedImages === images.length) {
-            console.log("✅ Todas las imágenes han cargado. Mostrando la lista de álbumes.");
-            loader.style.display = "none";
-            albumsList.style.display = "grid";
+        if (loadedImages2 === images.length) {
+
+            loader2.style.display = "none";
+            singlesList.style.display = "grid";
         }
     }
 
     images.forEach((img, index) => {
         if (img.complete) {
-            console.log(`🟢 Imagen ${index + 1} ya estaba en caché.`);
-            checkAllImagesLoaded(); // Si la imagen ya está en caché, contarlo inmediatamente
+            checkAllImagesLoaded(); 
         } else {
             img.onload = () => {
-                console.log(`🖼 Imagen ${index + 1} cargada correctamente.`);
                 checkAllImagesLoaded();
             };
             img.onerror = () => {
-                console.warn(`❌ Error al cargar la imagen ${index + 1}.`);
                 checkAllImagesLoaded();
             };
         }
